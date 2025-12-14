@@ -1,5 +1,5 @@
 resource "aws_instance" "instance" {
-    count                  = 3
+    count                  = 5
     ami                    = var.ami
     instance_type          = var.instance_type
     vpc_security_group_ids = var.vpc_security_group_ids
@@ -10,10 +10,10 @@ resource "aws_instance" "instance" {
 }
 
 resource "aws_route53_record" "dns_records" {
-    count   = 3
+    count   = 5
     zone_id = var.zone_id
     name    = "${var.components[count.index]}-dev"
     type    = "A"
     ttl     = 30
-    records = [aws_instance."${var.components[count.index]}".private_ip]
+    records = [aws_instance.instance[count.index].private_ip]
 }
