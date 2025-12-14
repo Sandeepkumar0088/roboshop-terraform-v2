@@ -18,7 +18,7 @@ variable "zone_id" {
 variable "components" {
     default = [
         "frontend",
-        "mongodb",
+        # "mongodb",
         "catalogue",
         "redis",
     ]
