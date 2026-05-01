@@ -23,3 +23,6 @@ variable "components" {
         "redis"
     ]
 }
+
+
+
